@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>As Férias de Julho</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topo">
+    <h1>☀️ As Férias de Julho</h1>
+    <p class="subtitulo">Fotos e momentos registrados durante as férias</p>
+    <button id="btnAbrirForm" class="botao-principal">+ Adicionar foto</button>
+  </header>
+
+  <main>
+    <section id="galeria" class="galeria">
+      <!-- Os cartões de foto são inseridos aqui via JavaScript -->
+      <p id="carregando">Carregando fotos...</p>
+    </section>
+  </main>
+
+  <!-- Modal / carrossel de detalhes -->
+  <div id="modalDetalhe" class="modal escondido">
+    <div class="modal-conteudo">
+      <img id="modalImagem" src="" alt="Foto ampliada" />
+      <h2 id="modalTitulo"></h2>
+      <p id="modalDescricao"></p>
+      <button id="btnVoltar" class="botao-secundario">← Voltar ao início</button>
+    </div>
+  </div>
+
+  <!-- Modal de upload -->
+  <div id="modalForm" class="modal escondido">
+    <div class="modal-conteudo">
+      <h2>Adicionar novo momento</h2>
+      <form id="formFoto">
+        <label>Título
+          <input type="text" id="inputTitulo" required placeholder="Ex: Tarde na praia" />
+        </label>
+        <label>Categoria
+          <select id="inputCategoria">
+            <option value="praia">Praia</option>
+            <option value="parque">Parque</option>
+            <option value="viagem">Viagem</option>
+            <option value="cinema">Cinema</option>
+            <option value="familia">Família</option>
+            <option value="passeio">Passeio</option>
+            <option value="geral">Outro</option>
+          </select>
+        </label>
+        <label>Descrição
+          <textarea id="inputDescricao" required placeholder="Conte como foi esse momento..."></textarea>
+        </label>
+        <label>Foto
+          <input type="file" id="inputArquivo" accept="image/*" required />
+        </label>
+        <div class="botoes-form">
+          <button type="button" id="btnCancelarForm" class="botao-secundario">Cancelar</button>
+          <button type="submit" class="botao-principal">Salvar</button>
+        </div>
+        <p id="mensagemForm"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
